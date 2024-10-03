@@ -1,4 +1,4 @@
-html {
+* {
     box-sizing: border-box;
 }
 
@@ -55,9 +55,9 @@ form[action$="destroy"] button {
 }
 
 #root {
-    display: flex;
+    /* display: flex;
     height: 100%;
-    width: 100%;
+    width: 100%; */
 }
 
 #sidebar {

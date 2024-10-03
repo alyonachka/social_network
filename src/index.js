@@ -11,6 +11,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import UserInfoPage from './pages/userInfo';
+import { Provider } from 'react-redux';
+import { store } from "./redux/store"
 
 const router = createBrowserRouter([
   {
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "user",
+    path: `user/:id`,
     element: <Root />,
     children: [
       {
@@ -51,7 +53,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 reportWebVitals();
