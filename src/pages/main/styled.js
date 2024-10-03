@@ -1,4 +1,6 @@
-.container {
+import styled from "styled-components";
+
+export const Container = styled.div`
     margin: 60px auto 0;
     max-width: 600px;
     width: 100%;
@@ -8,16 +10,10 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-}
+`
 
-nav {
+export const Menu = styled.nav`
     display: flex;
     justify-content: center;
     gap: 30px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
+`

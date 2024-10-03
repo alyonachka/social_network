@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { USERS } from "../../../../constants/keys";
+import { Input } from "../../../../components/UI/Input";
+import { Button } from "../../../../components/UI/Button";
+import { Form } from "../../../../components/UI/Form";
 
 export const Registration = ({ users, setToLS }) => {
     const [user, setUser] = useState({});
@@ -39,26 +42,26 @@ export const Registration = ({ users, setToLS }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
+        <Form onSubmit={onSubmit}>
+            <Input
                 type="text"
                 placeholder="Имя"
                 name="username"
                 onChange={onChange}
             />
-            <input
+            <Input
                 type="email"
                 placeholder="E-mail"
                 name="email"
                 onChange={onChange}
             />
-            <input
+            <Input
                 type="password"
                 placeholder="Пароль"
                 name="password"
                 onChange={onChange}
             />
-            <button type="onsubmit">Зарегистрироваться</button>
-        </form>
+            <Button type="onsubmit" content="Зарегистрироваться" />
+        </Form>
     );
 };
