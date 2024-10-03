@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router';
 import './App.css';
+import { MainPage } from './pages/main';
 
 function App() {
+
   return (
     <div className="App">
-      Main page
-      <Outlet />
+      <MainPage />
     </div>
   );
 }

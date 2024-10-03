@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Root = () => {
     return (
-        <>
+        <div style={{ display: "flex" }}>
             <div id="sidebar">
                 <nav>
                     <ul>
@@ -17,6 +17,6 @@ export const Root = () => {
             <div id="detail">
                 <Outlet />
             </div>
-        </>
+        </div>
     );
 };
