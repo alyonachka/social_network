@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../../../../redux/slices/loginSlice";
+import { Input } from "../../../../components/UI/Input";
+import { Button } from "../../../../components/UI/Button";
+import { Form } from "../../../../components/UI/Form";
 
 export const Login = ({ users }) => {
     const dispatch = useDispatch();
@@ -39,20 +42,20 @@ export const Login = ({ users }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
+        <Form onSubmit={onSubmit}>
+            <Input
                 type="email"
                 placeholder="E-mail"
                 name="email"
                 onChange={onChange}
             />
-            <input
+            <Input
                 type="password"
                 placeholder="Пароль"
                 name="password"
                 onChange={onChange}
             />
-            <button type="onsubmit">Войти</button>
-        </form>
+            <Button type="onsubmit" content="Войти" />
+        </Form>
     );
 };

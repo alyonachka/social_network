@@ -1,10 +1,11 @@
-import "./styles.css";
 import { useEffect, useState } from "react";
 import { Login } from "./components/Login";
 import { Registration } from "./components/Registration";
 import { USERS } from "../../constants/keys";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import defaultUsers from "../../defaultUsers.json";
+import { Button } from "../../components/UI/Button";
+import * as SC from "./styled";
 
 export const MainPage = () => {
     const [users, setUsers] = useState();
@@ -20,16 +21,16 @@ export const MainPage = () => {
     }, [setToLS, getFromLS]);
 
     return (
-        <div className="container">
-            <nav>
-                <button onClick={() => setLogin(true)}>Вход</button>
-                <button onClick={() => setLogin(false)}>Регистрация</button>
-            </nav>
+        <SC.Container>
+            <SC.Menu>
+                <Button onClick={() => setLogin(true)} content="Вход" />
+                <Button onClick={() => setLogin(false)} content="Регистрация" />
+            </SC.Menu>
             {login ? (
                 <Login users={users} />
             ) : (
                 <Registration users={users} setToLS={setToLS} />
             )}
-        </div>
+        </SC.Container>
     );
 };

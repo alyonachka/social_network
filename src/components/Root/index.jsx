@@ -1,22 +1,21 @@
 import { Outlet } from "react-router";
-import { Link } from "react-router-dom";
+import * as SC from "./styled";
+import { MyLink } from "./styled";
 
 export const Root = () => {
     return (
         <div style={{ display: "flex" }}>
-            <div id="sidebar">
-                <nav>
-                    <ul>
-                        <Link to={`info`}>Моя страница</Link>
-                        <Link to={`posts`}>Посты</Link>
-                        <Link to={`friends`}>Друзья</Link>
-                        <Link to={`posts`}>Выйти</Link>
-                    </ul>
-                </nav>
-            </div>
-            <div id="detail">
+            <SC.Sidebar id="sidebar">
+                <SC.NavMenu>
+                    <MyLink to={`info`}>Моя страница</MyLink>
+                    <MyLink to={`posts`}>Посты</MyLink>
+                    <MyLink to={`friends`}>Друзья</MyLink>
+                    <MyLink to={`posts`}>Выйти</MyLink>
+                </SC.NavMenu>
+            </SC.Sidebar>
+            <SC.Detail>
                 <Outlet />
-            </div>
+            </SC.Detail>
         </div>
     );
 };
