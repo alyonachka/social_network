@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Login } from "./components/Login";
 import { Registration } from "./components/Registration";
-import { USERS } from "../../constants/keys";
+import { USERS, POSTS } from "../../constants/keys";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import defaultUsers from "../../defaultUsers.json";
+import defaultPosts from "../../defaultPosts.json";
 import { Button } from "../../components/UI/Button";
 import * as SC from "./styled";
 
@@ -16,6 +17,8 @@ export const MainPage = () => {
         if (!getFromLS(USERS)) {
             setToLS(USERS, defaultUsers.users);
         }
+
+        if (!getFromLS(POSTS)) setToLS(POSTS, defaultPosts.posts);
 
         setUsers(getFromLS(USERS));
     }, [setToLS, getFromLS]);
