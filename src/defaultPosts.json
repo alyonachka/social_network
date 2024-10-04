@@ -2,21 +2,30 @@
     "posts": [
         {
             "id": 1,
-            "author": "Alyonachka",
+            "author": {
+                "id": 1,
+                "username": "Alyonachka"
+            },
             "title": "First Post",
             "content": "This is my first post!",
             "visibility": "all",
             "comments": [
                 {
                     "id": 1,
-                    "author": "FriendUser",
+                    "author": {
+                        "id": 2,
+                        "username": "FriendUser"
+                    },
                     "content": "Great post!"
                 }
             ]
         },
         {
             "id": 2,
-            "author": "Alyonachka",
+            "author": {
+                "id": 2,
+                "username": "FriendUser"
+            },
             "title": "Friends-only Post",
             "content": "This post is only visible to my friends.",
             "visibility": "friends",
@@ -24,7 +33,10 @@
         },
         {
             "id": 3,
-            "author": "AdminUser",
+            "author": {
+                "id": 3,
+                "username": "AdminUser"
+            },
             "title": "Welcome to the Platform",
             "content": "Welcome everyone to the new social platform.",
             "visibility": "all",
