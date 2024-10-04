@@ -26,7 +26,13 @@ export const PostsPage = () => {
                 />
                 <SC.PostsWrapper>
                     {posts
-                        ?.filter((item) => item.visibility === "all")
+                        ?.filter(
+                            (item) =>
+                                item.visibility === "all" ||
+                                user.friends.find(
+                                    (friend) => friend.id === item.author.id
+                                )
+                        )
                         ?.map((post) => (
                             <Post
                                 key={post.id}

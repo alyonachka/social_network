@@ -11,7 +11,7 @@ export const Post = ({ post, getFromLS, setToLS }) => {
             <SC.Header>
                 <SC.Icon src="/default-user-photo.png" alt="User photo" />
                 <SC.MainInfo>
-                    <SC.Author>{post.author}</SC.Author>
+                    <SC.Author>{post.author.username}</SC.Author>
                     <SC.Title>{post.title}</SC.Title>
                 </SC.MainInfo>
             </SC.Header>
