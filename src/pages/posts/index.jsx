@@ -3,13 +3,13 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { POSTS } from "../../constants/keys";
 import * as SC from "./styled";
 import { Post } from "./components/Post";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { AddPostForm } from "./components/AddPostForm";
 
 export const PostsPage = () => {
     const { getFromLS, setToLS } = useLocalStorage();
     const [posts, setPosts] = useState(null);
-    // const { user } = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
         setPosts(getFromLS(POSTS));
@@ -25,14 +25,16 @@ export const PostsPage = () => {
                     setPosts={setPosts}
                 />
                 <SC.PostsWrapper>
-                    {posts?.map((post) => (
-                        <Post
-                            key={post.id}
-                            post={post}
-                            getFromLS={getFromLS}
-                            setToLS={setToLS}
-                        />
-                    ))}
+                    {posts
+                        ?.filter((item) => item.visibility === "all")
+                        ?.map((post) => (
+                            <Post
+                                key={post.id}
+                                post={post}
+                                getFromLS={getFromLS}
+                                setToLS={setToLS}
+                            />
+                        ))}
                 </SC.PostsWrapper>
             </SC.Wrapper>
         </>

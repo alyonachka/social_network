@@ -9,14 +9,17 @@
             "comments": [
                 {
                     "id": 1,
-                    "author": "FriendUser",
+                    "author": {
+                        "id": 2,
+                        "username": "FriendUser"
+                    },
                     "content": "Great post!"
                 }
             ]
         },
         {
             "id": 2,
-            "author": "Alyonachka",
+            "author": "FriendUser",
             "title": "Friends-only Post",
             "content": "This post is only visible to my friends.",
             "visibility": "friends",

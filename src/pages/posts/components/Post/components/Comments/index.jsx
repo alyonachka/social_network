@@ -13,7 +13,7 @@ export const Comments = ({ post }) => {
                         />
                         <SC.MainInfo>
                             <div>
-                                <b>{comment.author}</b>
+                                <b>{comment.author.username}</b>
                             </div>
                             <div>{comment.content}</div>
                         </SC.MainInfo>

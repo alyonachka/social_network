@@ -19,7 +19,10 @@ export const AddCommentForm = ({ post, setAddComment, getFromLS, setToLS }) => {
 
         post.comments.push({
             id: Date.now(),
-            author: user.username,
+            author: {
+                id: user.id,
+                username: user.username,
+            },
             content,
         });
 
@@ -27,7 +30,7 @@ export const AddCommentForm = ({ post, setAddComment, getFromLS, setToLS }) => {
 
         setToLS(
             POSTS,
-            posts.filter((item) => {
+            posts.map((item) => {
                 if (item.id === post.id) {
                     return post;
                 }
