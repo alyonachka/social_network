@@ -1,49 +1,20 @@
+import { useSelector } from "react-redux";
+import * as SC from "./styled";
+
 export default function UserInfoPage() {
-    const contact = {
-        first: "Your",
-        last: "Name",
-        twitter: "your_handle",
-        notes: "Some notes",
-    };
+    const user = useSelector((state) => state.auth.user);
 
+    const role = user.role === "user" ? "пользователь" : "администратор";
     return (
-        <div id="contact">
-            <div>
-                <img
-                    key={contact.avatar}
-                    src="./default-user-photo.png"
-                    alt="User avatar"
-                />
-            </div>
-
-            <div>
-                <h1>
-                    {contact.first || contact.last ? (
-                        <>
-                            {contact.first} {contact.last}
-                        </>
-                    ) : (
-                        <i>No Name</i>
-                    )}{" "}
-                </h1>
-
-                {contact.twitter && <p>{contact.twitter}</p>}
-
-                {contact.notes && <p>{contact.notes}</p>}
-
+        <SC.Wrapper>
+            <SC.Avatar src="/default-user-photo.png" alt="user photo" />
+            <SC.Info>
                 <div>
-                    <form action="edit">
-                        <button type="submit">Edit</button>
-                    </form>
-                    <form
-                        method="post"
-                        action="destroy"
-                        onSubmit={(event) => {}}
-                    >
-                        <button type="submit">Delete</button>
-                    </form>
+                    Имя: <b>{user.username}</b>
                 </div>
-            </div>
-        </div>
+                <div>Почта: {user.email}</div>
+                <div>Права: {role}</div>
+            </SC.Info>
+        </SC.Wrapper>
     );
 }
