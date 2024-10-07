@@ -39,6 +39,7 @@ export const PostsPage = () => {
                                 post={post}
                                 getFromLS={getFromLS}
                                 setToLS={setToLS}
+                                setPosts={setPosts}
                             />
                         ))}
                 </SC.PostsWrapper>
