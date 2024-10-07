@@ -9,12 +9,21 @@
             "friends": [
                 {
                     "id": 2,
-                    "username": "FriendUser",
-                    "email": "friend@example.com"
+                    "username": "FriendUser"
                 }
             ],
-            "followers": [],
-            "following": []
+            "followers": [
+                {
+                    "id": 4,
+                    "username": "Maxim"
+                }
+            ],
+            "following": [
+                {
+                    "id": 3,
+                    "username": "AdminUser"
+                }
+            ]
         },
         {
             "id": 2,
@@ -25,8 +34,7 @@
             "friends": [
                 {
                     "id": 1,
-                    "username": "Alyonachka",
-                    "email": "alena.chadina2016@yandex.ru"
+                    "username": "Alyonachka"
                 }
             ],
             "followers": [],
@@ -38,6 +46,37 @@
             "email": "admin@example.com",
             "password": "789",
             "role": "admin",
+            "friends": [],
+            "followers": [
+                {
+                    "id": 1,
+                    "username": "Alyonachka"
+                }
+            ],
+            "following": []
+        },
+        {
+            "id": 4,
+            "username": "Maxim",
+            "email": "max@example.com",
+            "password": "234",
+            "role": "user",
+            "friends": [],
+            "followers": [
+            ],
+            "following": [
+                {
+                    "id": 1,
+                    "username": "Alyonachka"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "username": "Alya",
+            "email": "alya@example.com",
+            "password": "345",
+            "role": "user",
             "friends": [],
             "followers": [],
             "following": []
