@@ -13,6 +13,7 @@ import {
 import UserInfoPage from './pages/userInfo';
 import { Provider } from 'react-redux';
 import { store } from "./redux/store"
+import { Protected } from './components/Protected';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: `user/:id`,
-    element: <Root />,
+    element: <Protected><Root /></Protected>,
     children: [
       {
         path: "info",
