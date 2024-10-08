@@ -6,7 +6,7 @@ export const Sidebar = styled.aside`
     background-color: #f7f7f7;
     border-right: solid 1px #e3e3e3;
     padding: 0 2rem;
-    height: 100vh;
+    min-height: 100vh;
 `
 
 export const NavMenu = styled.nav`

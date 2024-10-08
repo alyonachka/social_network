@@ -4,7 +4,7 @@ import { Input } from "../../../../components/UI/Input";
 import { Button } from "../../../../components/UI/Button";
 import { Form } from "../../../../components/UI/Form";
 
-export const Registration = ({ users, setToLS }) => {
+export const Registration = ({ users, setToLS, setUsers }) => {
     const [user, setUser] = useState({});
 
     const onSubmit = (e) => {
@@ -30,6 +30,7 @@ export const Registration = ({ users, setToLS }) => {
         };
 
         setToLS(USERS, [...users, newUser]);
+        setUsers([...users, newUser]);
 
         alert("Вы успешно зарегистрировались!");
     };

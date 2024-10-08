@@ -32,7 +32,11 @@ export const MainPage = () => {
             {login ? (
                 <Login users={users} />
             ) : (
-                <Registration users={users} setToLS={setToLS} />
+                <Registration
+                    users={users}
+                    setUsers={setUsers}
+                    setToLS={setToLS}
+                />
             )}
         </SC.Container>
     );
