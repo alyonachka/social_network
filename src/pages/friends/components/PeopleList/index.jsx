@@ -5,12 +5,11 @@ import { useSelector } from "react-redux";
 
 export const PeopleList = ({ people, updateUserInfo }) => {
     const { getFromLS, setToLS } = useLocalStorage();
-    const { id } = useSelector((state) => state.auth.user);
+    const user = useSelector((state) => state.auth.user);
 
     const subscribePerson = (personId) => {
         const users = getFromLS(USERS);
         const newFriend = users.find((user) => user.id === personId);
-        const user = users.find((person) => person.id === id);
 
         const updatedUser = {
             ...user,
@@ -37,7 +36,6 @@ export const PeopleList = ({ people, updateUserInfo }) => {
         );
 
         setToLS(USERS, updatedUsers);
-
         updateUserInfo();
     };
 

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { USERS } from "../../constants/keys";
@@ -8,33 +8,26 @@ import { PeopleList } from "./components/PeopleList";
 import { FollowingList } from "./components/Following";
 import { FollowersList } from "./components/Followers";
 import { filterPeople } from "../../utils/filterPeople";
+import { updateUserInfo } from "../../utils/updateUserInfo";
 
 export const FriendsPage = () => {
     const [activeMenu, setActiveMenu] = useState("friends");
-    const { id } = useSelector((state) => state.auth.user);
+    const user = useSelector((state) => state.auth.user);
     const { getFromLS } = useLocalStorage();
-    const [userInfo, setUserInfo] = useState({});
+    const dispatch = useDispatch();
     const [people, setPeople] = useState([]);
 
     useEffect(() => {
-        setUserInfo(getFromLS(USERS).find((item) => item.id === id));
-    }, [getFromLS, id]);
-
-    useEffect(() => {
         const users = getFromLS(USERS);
-        const currentUser = users.find((item) => item.id === id);
-        setUserInfo(currentUser);
-
-        const filteredPeople = filterPeople(users, currentUser, id);
+        const filteredPeople = filterPeople(users, user);
         setPeople(filteredPeople);
-    }, [getFromLS, id]);
+    }, [getFromLS, user]);
 
-    const updateUserInfo = () => {
+    const updateUser = () => {
+        updateUserInfo(user.id, getFromLS, dispatch);
+
         const users = getFromLS(USERS);
-        const updatedUser = users.find((item) => item.id === id);
-        setUserInfo(updatedUser);
-
-        const updatedPeople = filterPeople(users, updatedUser, id);
+        const updatedPeople = filterPeople(users, user);
         setPeople(updatedPeople);
     };
 
@@ -43,30 +36,27 @@ export const FriendsPage = () => {
             <SC.FriendsList>
                 {activeMenu === "friends" && (
                     <FriendsList
-                        friends={userInfo.friends}
-                        id={id}
-                        updateUserInfo={updateUserInfo}
+                        friends={user.friends}
+                        id={user.id}
+                        updateUserInfo={updateUser}
                     />
                 )}
                 {activeMenu === "following" && (
                     <FollowingList
-                        following={userInfo.following}
-                        id={id}
-                        updateUserInfo={updateUserInfo}
+                        following={user.following}
+                        id={user.id}
+                        updateUserInfo={updateUser}
                     />
                 )}
                 {activeMenu === "followers" && (
                     <FollowersList
-                        followers={userInfo.followers}
-                        id={id}
-                        updateUserInfo={updateUserInfo}
+                        followers={user.followers}
+                        id={user.id}
+                        updateUserInfo={updateUser}
                     />
                 )}
                 {activeMenu === "people" && (
-                    <PeopleList
-                        people={people}
-                        updateUserInfo={updateUserInfo}
-                    />
+                    <PeopleList people={people} updateUserInfo={updateUser} />
                 )}
             </SC.FriendsList>
             <SC.Menu>
