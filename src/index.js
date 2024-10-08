@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate
 } from "react-router-dom";
 import UserInfoPage from './pages/userInfo';
 import { Provider } from 'react-redux';
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "info",
-        element: <UserInfoPage />
+        element: <UserInfoPage />,
       },
       {
         path: "posts",
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
         path: "friends",
         element: <FriendsPage />
       },
-
+      {
+        index: true,
+        element: <Navigate to="posts" replace />,
+      },
     ]
   },
 ]);
