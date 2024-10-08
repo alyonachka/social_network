@@ -2,9 +2,21 @@ import { useState } from "react";
 import * as SC from "./styled";
 import { Comments } from "./components/Comments";
 import { AddCommentForm } from "./components/AddCommentForm";
+import { POSTS } from "../../constants/keys";
 
-export const Post = ({ post, getFromLS, setToLS }) => {
+export const Post = ({ post, getFromLS, setToLS, setPosts, deleteFlag }) => {
     const [addComment, setAddComment] = useState(false);
+
+    const onDeletePost = (postId) => {
+        const result = window.confirm("Вы уверены что хотите удалить пост?");
+
+        if (!result) return;
+
+        const posts = getFromLS(POSTS);
+        const filteredPosts = posts.filter((post) => post.id !== postId);
+        setPosts(filteredPosts);
+        setToLS(POSTS, filteredPosts);
+    };
 
     return (
         <SC.Post>
@@ -14,6 +26,13 @@ export const Post = ({ post, getFromLS, setToLS }) => {
                     <SC.Author>{post.author.username}</SC.Author>
                     <SC.Title>{post.title}</SC.Title>
                 </SC.MainInfo>
+                {deleteFlag && (
+                    <SC.DeletePostBtn
+                        content="X"
+                        deleteFlag={true}
+                        onClick={() => onDeletePost(post.id)}
+                    />
+                )}
             </SC.Header>
             <SC.Body>
                 <div>{post.content}</div>

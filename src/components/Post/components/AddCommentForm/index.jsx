@@ -1,9 +1,9 @@
 import * as SC from "./styled";
-import { Input } from "../../../../../../components/UI/Input";
-import { Button } from "../../../../../../components/UI/Button";
+import { Input } from "../../../UI/Input";
+import { Button } from "../../../UI/Button";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { POSTS } from "../../../../../../constants/keys";
+import { POSTS } from "../../../../constants/keys";
 
 export const AddCommentForm = ({ post, setAddComment, getFromLS, setToLS }) => {
     const user = useSelector((state) => state.auth.user);

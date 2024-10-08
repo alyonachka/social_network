@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../UI/Button";
 
 export const Post = styled.div`
     display: flex;
@@ -12,6 +13,7 @@ export const Post = styled.div`
 export const Header = styled.div`
     display: flex;
     gap: 30px;
+    position: relative;
 `
 
 export const Icon = styled.img`
@@ -36,4 +38,13 @@ export const Title = styled.span`
 
 export const Body = styled.div`
 
+`
+
+export const DeletePostBtn = styled(Button)`
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
 `
