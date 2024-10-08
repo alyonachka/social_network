@@ -11,7 +11,7 @@ export const Registration = ({ users, setToLS, setUsers }) => {
         e.preventDefault();
 
         if (!user.username || !user.email || !user.password) {
-            alert("Заполнните все поля");
+            alert("Заполните все поля");
             return;
         }
 
