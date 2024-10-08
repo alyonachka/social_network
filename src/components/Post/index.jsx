@@ -2,12 +2,10 @@ import { useState } from "react";
 import * as SC from "./styled";
 import { Comments } from "./components/Comments";
 import { AddCommentForm } from "./components/AddCommentForm";
-import { useSelector } from "react-redux";
-import { POSTS } from "../../../../constants/keys";
+import { POSTS } from "../../constants/keys";
 
-export const Post = ({ post, getFromLS, setToLS, setPosts }) => {
+export const Post = ({ post, getFromLS, setToLS, setPosts, deleteFlag }) => {
     const [addComment, setAddComment] = useState(false);
-    const { role } = useSelector((state) => state.auth.user);
 
     const onDeletePost = (postId) => {
         const result = window.confirm("Вы уверены что хотите удалить пост?");
@@ -28,7 +26,7 @@ export const Post = ({ post, getFromLS, setToLS, setPosts }) => {
                     <SC.Author>{post.author.username}</SC.Author>
                     <SC.Title>{post.title}</SC.Title>
                 </SC.MainInfo>
-                {role === "admin" && (
+                {deleteFlag && (
                     <SC.DeletePostBtn
                         content="X"
                         deleteFlag={true}

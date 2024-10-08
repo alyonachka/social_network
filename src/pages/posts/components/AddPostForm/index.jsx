@@ -37,7 +37,10 @@ export const AddPostForm = ({ getFromLS, setToLS, posts, setPosts }) => {
 
         const newObj = {
             id: Date.now(),
-            author: user.username,
+            author: {
+                id: user.id,
+                username: user.username,
+            },
             ...newPost,
             comments: [],
         };
