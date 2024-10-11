@@ -1,6 +1,6 @@
 import { USERS } from "../../../../constants/keys";
 import { Input } from "../../../../components/UI/Input";
-import { Button } from "../../../../components/UI/Button";
+import { Button } from "../../../../components/UI/AppButton";
 import { Form } from "../../../../components/UI/Form";
 import { useForm } from "react-hook-form";
 import { FormErrorMessage } from "../../../../components/UI/FormErrorMessage";

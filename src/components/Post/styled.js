@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../UI/Button";
+import { Button } from "../UI/AppButton";
 
 export const Post = styled.div`
     display: flex;

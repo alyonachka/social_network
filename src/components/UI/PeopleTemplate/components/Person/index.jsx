@@ -1,5 +1,5 @@
 import * as SC from "./styled";
-import { Button } from "../../../Button";
+import { Button } from "../../../AppButton";
 import { useEffect, useState } from "react";
 import { USERS } from "../../../../../constants/keys";
 

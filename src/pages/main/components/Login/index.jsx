@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../../../../redux/slices/loginSlice";
 import { Input } from "../../../../components/UI/Input";
-import { Button } from "../../../../components/UI/Button";
+import { Button } from "../../../../components/UI/AppButton";
 import { Form } from "../../../../components/UI/Form";
 import { useForm } from "react-hook-form";
 import { FormErrorMessage } from "../../../../components/UI/FormErrorMessage";

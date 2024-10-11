@@ -1,6 +1,6 @@
 import * as SC from "./styled";
 import { Input } from "../../../UI/Input";
-import { Button } from "../../../UI/Button";
+import { Button } from "../../../UI/AppButton";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { POSTS } from "../../../../constants/keys";

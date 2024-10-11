@@ -5,7 +5,7 @@ import { USERS, POSTS } from "../../constants/keys";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import defaultUsers from "../../defaultUsers.json";
 import defaultPosts from "../../defaultPosts.json";
-import { Button } from "../../components/UI/Button";
+import { Button } from "../../components/UI/AppButton";
 import * as SC from "./styled";
 
 export const MainPage = () => {
