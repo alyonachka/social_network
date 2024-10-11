@@ -10,7 +10,7 @@ import * as SC from "./styled";
 
 export const MainPage = () => {
     const [users, setUsers] = useState();
-    const [login, setLogin] = useState(true);
+    const [authForm, setAuthFrom] = useState("login");
     const { getFromLS, setToLS } = useLocalStorage();
 
     useEffect(() => {
@@ -26,10 +26,13 @@ export const MainPage = () => {
     return (
         <SC.Container>
             <SC.Menu>
-                <Button onClick={() => setLogin(true)} content="Вход" />
-                <Button onClick={() => setLogin(false)} content="Регистрация" />
+                <Button onClick={() => setAuthFrom("login")} content="Вход" />
+                <Button
+                    onClick={() => setAuthFrom("registration")}
+                    content="Регистрация"
+                />
             </SC.Menu>
-            {login ? (
+            {authForm === "login" ? (
                 <Login users={users} />
             ) : (
                 <Registration
