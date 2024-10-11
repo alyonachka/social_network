@@ -1,38 +1,29 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../../../../redux/slices/loginSlice";
 import { Input } from "../../../../components/UI/Input";
-import { Button } from "../../../../components/UI/Button";
+import { Button } from "../../../../components/UI/AppButton";
 import { Form } from "../../../../components/UI/Form";
+import { useForm } from "react-hook-form";
+import { FormErrorMessage } from "../../../../components/UI/FormErrorMessage";
 
 export const Login = ({ users }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
-    const onChange = (e) => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        if (!user.password || !user.email) {
-            alert("Заполнните все поля");
-            return;
-        }
-
-        const foundUser = users.find((item) => item.email === user.email);
+    const onSubmit = (data) => {
+        const foundUser = users.find((item) => item.email === data.email);
         if (!foundUser) {
             alert("Нет такого пользователя");
             return;
         }
 
-        if (foundUser.password !== user.password) {
+        if (foundUser.password !== data.password) {
             alert("Пароль неверный");
             return;
         }
@@ -42,19 +33,31 @@ export const Login = ({ users }) => {
     };
 
     return (
-        <Form onSubmit={onSubmit}>
-            <Input
-                type="email"
-                placeholder="E-mail"
-                name="email"
-                onChange={onChange}
-            />
-            <Input
-                type="password"
-                placeholder="Пароль"
-                name="password"
-                onChange={onChange}
-            />
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+                <Input
+                    placeholder="E-mail"
+                    {...register("email", {
+                        required: "E-mail обязателен",
+                        pattern: {
+                            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                            message: "Введите действительный E-mail",
+                        },
+                    })}
+                />
+                {errors.email && (
+                    <FormErrorMessage text={errors.email.message} />
+                )}
+            </div>
+            <div>
+                <Input
+                    placeholder="Пароль"
+                    {...register("password", { required: "Пароль обязателен" })}
+                />
+                {errors.password && (
+                    <FormErrorMessage text={errors.password.message} />
+                )}
+            </div>
             <Button type="onsubmit" content="Войти" />
         </Form>
     );

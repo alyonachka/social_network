@@ -1,6 +1,6 @@
 import * as SC from "./styled";
 import { Input } from "../../../UI/Input";
-import { Button } from "../../../UI/Button";
+import { Button } from "../../../UI/AppButton";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { POSTS } from "../../../../constants/keys";
@@ -42,7 +42,10 @@ export const AddCommentForm = ({ post, setAddComment, getFromLS, setToLS }) => {
 
     return (
         <SC.AddCommentForm onSubmit={onSubmit}>
-            <SC.Icon src="/default-user-photo.png" alt="User photo" />
+            <SC.Icon
+                src={user.img || "/default-user-photo.png"}
+                alt="User photo"
+            />
             <Input
                 placeholder="Написать комментарий"
                 style={{ width: "100%" }}

@@ -5,7 +5,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import { POSTS } from "../../constants/keys";
 
-export default function UserInfoPage() {
+export const UserInfoPage = () => {
     const user = useSelector((state) => state.auth.user);
     const { setToLS, getFromLS } = useLocalStorage();
     const [posts, setPosts] = useState([]);
@@ -18,7 +18,10 @@ export default function UserInfoPage() {
     return (
         <SC.Wrapper>
             <SC.ProfileWrapper>
-                <SC.Avatar src="/default-user-photo.png" alt="user photo" />
+                <SC.Avatar
+                    src={user.img || "/default-user-photo.png"}
+                    alt="user photo"
+                />
                 <SC.Info>
                     <div>
                         Имя: <b>{user.username}</b>
@@ -44,4 +47,4 @@ export default function UserInfoPage() {
             </SC.PostsWrapper>
         </SC.Wrapper>
     );
-}
+};

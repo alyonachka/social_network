@@ -5,12 +5,12 @@ import { USERS, POSTS } from "../../constants/keys";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import defaultUsers from "../../defaultUsers.json";
 import defaultPosts from "../../defaultPosts.json";
-import { Button } from "../../components/UI/Button";
+import { Button } from "../../components/UI/AppButton";
 import * as SC from "./styled";
 
 export const MainPage = () => {
     const [users, setUsers] = useState();
-    const [login, setLogin] = useState(true);
+    const [authForm, setAuthFrom] = useState("login");
     const { getFromLS, setToLS } = useLocalStorage();
 
     useEffect(() => {
@@ -26,10 +26,13 @@ export const MainPage = () => {
     return (
         <SC.Container>
             <SC.Menu>
-                <Button onClick={() => setLogin(true)} content="Вход" />
-                <Button onClick={() => setLogin(false)} content="Регистрация" />
+                <Button onClick={() => setAuthFrom("login")} content="Вход" />
+                <Button
+                    onClick={() => setAuthFrom("registration")}
+                    content="Регистрация"
+                />
             </SC.Menu>
-            {login ? (
+            {authForm === "login" ? (
                 <Login users={users} />
             ) : (
                 <Registration

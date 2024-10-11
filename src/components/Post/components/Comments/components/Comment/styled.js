@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const AddCommentForm = styled.form`
+export const Comment = styled.div`
     display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    gap: 10px;
 `
 
 export const Icon = styled.img`
@@ -11,4 +10,10 @@ export const Icon = styled.img`
     height: 40px;
     border-radius: 50%;
     border: 1px solid;
+`
+
+export const MainInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `

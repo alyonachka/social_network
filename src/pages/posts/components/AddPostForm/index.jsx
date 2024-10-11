@@ -1,5 +1,5 @@
 import * as SC from "./styled";
-import { Button } from "../../../../components/UI/Button";
+import { Button } from "../../../../components/UI/AppButton";
 import { Form } from "../../../../components/UI/Form";
 import { Input } from "../../../../components/UI/Input";
 import { Textarea } from "../../../../components/UI/Textarea";

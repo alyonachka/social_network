@@ -9,6 +9,7 @@ export const FriendAvatar = styled.img`
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    border: 1px solid;
 `
 
 export const InfoBlock = styled.div`

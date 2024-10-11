@@ -4,7 +4,8 @@
             "id": 1,
             "username": "Alyonachka",
             "email": "alena.chadina2016@yandex.ru",
-            "password": "123",
+            "password": "Alyonachka1",
+            "img": "https://robohash.org/1.png",
             "role": "user",
             "friends": [
                 {
@@ -29,8 +30,9 @@
             "id": 2,
             "username": "FriendUser",
             "email": "friend@example.com",
-            "password": "456",
+            "password": "FriendUser2",
             "role": "user",
+            "img": "https://robohash.org/2.png",
             "friends": [
                 {
                     "id": 1,
@@ -44,8 +46,9 @@
             "id": 3,
             "username": "AdminUser",
             "email": "admin@example.com",
-            "password": "789",
+            "password": "AdminUser3",
             "role": "admin",
+            "img": "https://robohash.org/3.png",
             "friends": [],
             "followers": [
                 {
@@ -59,8 +62,9 @@
             "id": 4,
             "username": "Maxim",
             "email": "max@example.com",
-            "password": "234",
+            "password": "MaximMaxim4",
             "role": "user",
+            "img": "https://robohash.org/4.png",
             "friends": [],
             "followers": [
             ],
@@ -75,8 +79,9 @@
             "id": 5,
             "username": "Alya",
             "email": "alya@example.com",
-            "password": "345",
+            "password": "AlyaAlya5",
             "role": "user",
+            "img": "https://robohash.org/5.png",
             "friends": [],
             "followers": [],
             "following": []

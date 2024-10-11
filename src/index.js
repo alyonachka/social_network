@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Root } from "./components/Root"
-import { FriendsPage } from "./pages/friends"
-import { PostsPage } from "./pages/posts"
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate
 } from "react-router-dom";
-import UserInfoPage from './pages/userInfo';
 import { Provider } from 'react-redux';
 import { store } from "./redux/store"
 import { Protected } from './components/Protected';
+import { Loader } from './components/UI/Loader';
+
+const UserInfoPage = lazy(() => import('./pages/userInfo').then(module => ({ default: module.UserInfoPage })));
+const FriendsPage = lazy(() => import('./pages/friends').then(module => ({ default: module.FriendsPage })));
+const PostsPage = lazy(() => import('./pages/posts').then(module => ({ default: module.PostsPage })));
+
 
 const router = createBrowserRouter([
   {
@@ -27,15 +30,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "info",
-        element: <UserInfoPage />,
+        element: <Suspense fallback={<Loader />}><UserInfoPage /></Suspense>,
       },
       {
         path: "posts",
-        element: <PostsPage />
+        element: <Suspense fallback={<Loader />}><PostsPage /></Suspense>
       },
       {
         path: "friends",
-        element: <FriendsPage />
+        element: <Suspense fallback={<Loader />}><FriendsPage /></Suspense>
       },
       {
         index: true,

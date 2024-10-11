@@ -1,5 +1,5 @@
-import * as SC from "./styled";
-import { Button } from "../Button";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { Person } from "./components/Person";
 
 export const PeopleWrapper = ({
     people,
@@ -8,25 +8,22 @@ export const PeopleWrapper = ({
     textForNoData,
     onBtnClick,
 }) => {
+    const { getFromLS } = useLocalStorage();
+
     if (!people) return <>Loading...</>;
+
     return (
         <>
             {people.length === 0 && <div>{textForNoData}</div>}
             {people.map((person) => (
-                <SC.FriendWrapper key={person.id}>
-                    <SC.FriendAvatar
-                        src="/default-user-photo.png"
-                        alt="People avatar"
-                    />
-                    <SC.InfoBlock>
-                        <div>{person.username}</div>
-                        <Button
-                            deleteFlag={deleteFlag}
-                            content={btnContent}
-                            onClick={() => onBtnClick(person.id)}
-                        />
-                    </SC.InfoBlock>
-                </SC.FriendWrapper>
+                <Person
+                    key={person.id}
+                    person={person}
+                    deleteFlag={deleteFlag}
+                    btnContent={btnContent}
+                    onBtnClick={onBtnClick}
+                    getFromLS={getFromLS}
+                />
             ))}
         </>
     );

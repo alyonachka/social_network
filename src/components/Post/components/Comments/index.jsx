@@ -1,23 +1,21 @@
 import * as SC from "./styled";
+import { useState, useEffect } from "react";
+import { USERS } from "../../../../constants/keys";
+import { Comment } from "./components/Comment";
 
-export const Comments = ({ post }) => {
+export const Comments = ({ post, getFromLS }) => {
+    const [users, setUsers] = useState();
+
+    useEffect(() => {
+        setUsers(getFromLS(USERS));
+    }, [getFromLS]);
+
     return (
         <>
             <hr />
             <SC.Comments>
                 {post.comments?.map((comment) => (
-                    <SC.Comment key={comment.id}>
-                        <SC.Icon
-                            src="/default-user-photo.png"
-                            alt="User photo"
-                        />
-                        <SC.MainInfo>
-                            <div>
-                                <b>{comment.author.username}</b>
-                            </div>
-                            <div>{comment.content}</div>
-                        </SC.MainInfo>
-                    </SC.Comment>
+                    <Comment key={comment.id} comment={comment} users={users} />
                 ))}
             </SC.Comments>
         </>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../UI/Button";
+import { Button } from "../UI/AppButton";
 
 export const Post = styled.div`
     display: flex;
@@ -20,6 +20,7 @@ export const Icon = styled.img`
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: 1px solid;
 `
 
 export const MainInfo = styled.div`
