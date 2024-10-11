@@ -18,10 +18,13 @@ export const Registration = ({ users, setToLS, setUsers }) => {
             return;
         }
 
+        const id = Date.now();
+
         const newUser = {
             ...data,
-            id: Date.now(),
+            id,
             role: "user",
+            img: `https://robohash.org/${id}.png`,
             friends: [],
             followers: [],
             following: [],

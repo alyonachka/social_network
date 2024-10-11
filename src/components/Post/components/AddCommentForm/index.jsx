@@ -42,7 +42,10 @@ export const AddCommentForm = ({ post, setAddComment, getFromLS, setToLS }) => {
 
     return (
         <SC.AddCommentForm onSubmit={onSubmit}>
-            <SC.Icon src="/default-user-photo.png" alt="User photo" />
+            <SC.Icon
+                src={user.img || "/default-user-photo.png"}
+                alt="User photo"
+            />
             <Input
                 placeholder="Написать комментарий"
                 style={{ width: "100%" }}

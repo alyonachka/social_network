@@ -18,7 +18,10 @@ export default function UserInfoPage() {
     return (
         <SC.Wrapper>
             <SC.ProfileWrapper>
-                <SC.Avatar src="/default-user-photo.png" alt="user photo" />
+                <SC.Avatar
+                    src={user.img || "/default-user-photo.png"}
+                    alt="user photo"
+                />
                 <SC.Info>
                     <div>
                         Имя: <b>{user.username}</b>
