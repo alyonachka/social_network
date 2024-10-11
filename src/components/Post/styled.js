@@ -20,6 +20,7 @@ export const Icon = styled.img`
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: 1px solid;
 `
 
 export const MainInfo = styled.div`

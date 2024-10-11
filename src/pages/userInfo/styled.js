@@ -17,6 +17,7 @@ export const Avatar = styled.img`
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: 1px solid;
 `
 
 export const Info = styled.div`

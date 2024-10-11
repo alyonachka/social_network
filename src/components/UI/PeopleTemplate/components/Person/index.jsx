@@ -10,7 +10,7 @@ export const Person = ({
     onBtnClick,
     getFromLS,
 }) => {
-    const [personAvatar, setPersonAvatar] = useState("/default-user-photo.png");
+    const [personAvatar, setPersonAvatar] = useState();
 
     useEffect(() => {
         if (person.img) {

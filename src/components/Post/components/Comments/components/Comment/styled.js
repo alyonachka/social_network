@@ -9,6 +9,7 @@ export const Icon = styled.img`
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 1px solid;
 `
 
 export const MainInfo = styled.div`
