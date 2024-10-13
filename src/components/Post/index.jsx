@@ -44,12 +44,9 @@ export const Post = ({ post, getFromLS, setToLS, setPosts, deleteFlag }) => {
             <SC.Body>
                 <div>{post.content}</div>
             </SC.Body>
-            <img
-                src="/comment-icon.png"
-                width="20px"
-                onClick={() => setAddComment(!addComment)}
-                alt="Comment icon"
-            />
+            <SC.CommentBtn onClick={() => setAddComment(!addComment)}>
+                <img src="/comment-icon.png" width="20px" alt="Comment icon" />
+            </SC.CommentBtn>
             {post.comments.length > 0 && (
                 <Comments post={post} getFromLS={getFromLS} />
             )}
