@@ -1,5 +1,5 @@
 import * as SC from "./styled";
-import { Input } from "../../../UI/Input";
+import { Input } from "../../../UI/AppInput";
 import { Button } from "../../../UI/AppButton";
 import { useSelector } from "react-redux";
 import { useState } from "react";

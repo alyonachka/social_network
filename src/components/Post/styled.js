@@ -49,3 +49,10 @@ export const DeletePostBtn = styled(Button)`
     display: flex;
     justify-content: center;
 `
+
+export const CommentBtn = styled.button`
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+`
