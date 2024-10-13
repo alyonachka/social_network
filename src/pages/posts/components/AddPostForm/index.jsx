@@ -1,7 +1,7 @@
 import * as SC from "./styled";
 import { Button } from "../../../../components/UI/AppButton";
 import { Form } from "../../../../components/UI/Form";
-import { Input } from "../../../../components/UI/Input";
+import { Input } from "../../../../components/UI/AppInput";
 import { Textarea } from "../../../../components/UI/Textarea";
 import { useState } from "react";
 import { useSelector } from "react-redux";
