@@ -55,6 +55,7 @@ export const Login = ({ users }) => {
             <div>
                 <Input
                     placeholder="Пароль"
+                    type="password"
                     {...register("password", { required: "Пароль обязателен" })}
                 />
                 {errors.password && (
